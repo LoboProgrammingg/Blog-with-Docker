@@ -1,11 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    {% include "blog/partials/_head.html" %}
 </head>
 <body>
+    {% include "blog/partials/_header.html" %}
+
     {% block content %}{% endblock content %}
+
+    {% include "blog/partials/_paginations.html" %}
+
+    {% include "blog/partials/_footer.html" %}
 </body>
 </html>
