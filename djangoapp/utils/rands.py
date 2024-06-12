@@ -10,6 +10,6 @@ def random_letter(k=5):
     ))
 
 def slugify_new(text):
-    return slugify(text) + '-' + random_letter(2)
+    return slugify(text) + '-' + random_letter(3)
 
 print(slugify_new('bla bla bla atencao'))
