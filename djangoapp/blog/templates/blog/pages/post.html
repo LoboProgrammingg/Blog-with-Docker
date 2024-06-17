@@ -1,33 +1,43 @@
 {% extends 'blog/base.html' %} 
 
+{% block additional_head %}
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.2/codemirror.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/theme/dracula.min.css">
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.2/codemirror.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.2/mode/python/python.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.2/mode/javascript/javascript.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.2/mode/htmlmixed/htmlmixed.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.2/mode/css/css.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.2/mode/xml/xml.min.js"></script>
+{% endblock additional_head %}
+
 {% block content %}
 <main class="main-content single-post section-wrapper">
   <div class="single-post-content section-content-narrow">
     <div class="single-post-gap section-gap">
-
       {% if post.cover and post.cover_in_post_content %}
         <div class="single-post-cover pb-base">
           <img 
-          loading="lazy" 
-          src="{{ post.cover.url }}" 
-          alt="{{ post.title }}"
+            loading="lazy" 
+            src="{{ post.cover.url }}" 
+            alt="{{ post.title }}"
           >
         </div>
       {% endif %}
-
       <h2 class="single-post-title pb-base center">
         {{ post.title }}
       </h2>
-
       <div class="post-meta pb-base">
         <div class="post-meta-item">
-          <a class="post-meta-link"
-           href="{% url 'blog:created_by' post.created_by.pk %}"
-           >
+          <a 
+            class="post-meta-link" 
+            href="{% url 'blog:created_by' post.created_by.pk  %}"
+          >
             <i class="fa-solid fa-user"></i>
             <span>
               {% if post.created_by.first_name %}
-                {{ post.created_by.first_name }}
+                {{ post.created_by.first_name }} 
                 {{ post.created_by.last_name }}
               {% else %}
                 {{ post.created_by.username }}
@@ -39,61 +49,54 @@
           <span class="post-meta-link">
             <i class="fa-solid fa-calendar-days"></i>
             <span>
-              {{ post.created_at }}
+              {{ post.created_at | date:'d/m/Y \à\s H:i' }}
             </span>
-          </a>
+          </span>
         </div>
-
-      {% if post.category %}
+        {% if post.category %}
           <div class="post-meta-item">
-            <a class="post-meta-link" 
-            href="{% url 'blog:category' post.category.slug %}">
-            <i class="fa-solid fa-tag"></i>
-            <span>
-              {{ post.category.name }}
-            </span>
-          </a>
-        </div>
-      {% endif %}
+            <a 
+              class="post-meta-link" 
+              href="{% url 'blog:category' post.category.slug  %}"
+            >
+              <i class="fa-solid fa-tag"></i>
+              <span>
+                {{ post.category.name }}
+              </span>
+            </a>
+          </div>
+        {% endif %}
+      
       </div>
-
       <p class="single-post-excerpt pb-base">
         {{ post.excerpt | safe }}
       </p>
-
       <div class="separator"></div>
-
       <div class="single-post-content">
-        {{ post.content | safe }}
+        {{ post.content | safe  }} 
       
         <div class="post-tags">
           <span>Tags: </span>
-
           <a class="post-tag-link" href="#">
             <i class="fa-solid fa-link"></i>
             <span>Testando</span>
           </a>
-
           <a class="post-tag-link" href="#">
             <i class="fa-solid fa-link"></i>
             <span>Atenção</span>
           </a>
-
           <a class="post-tag-link" href="#">
             <i class="fa-solid fa-link"></i>
             <span>Obrigado</span>
           </a>
-
           <a class="post-tag-link" href="#">
             <i class="fa-solid fa-link"></i>
             <span>Educação</span>
           </a>
-
           <a class="post-tag-link" href="#">
             <i class="fa-solid fa-link"></i>
             <span>Python</span>
           </a>
-
         </div>
         
       </div>
@@ -101,5 +104,4 @@
     </div>
   </div>
 </main>
-
 {% endblock content %}
