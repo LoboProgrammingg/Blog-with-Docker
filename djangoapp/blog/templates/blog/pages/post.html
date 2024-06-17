@@ -75,30 +75,17 @@
       <div class="single-post-content">
         {{ post.content | safe  }} 
       
+      {% if post.tags.all.exists %}
         <div class="post-tags">
           <span>Tags: </span>
-          <a class="post-tag-link" href="#">
-            <i class="fa-solid fa-link"></i>
-            <span>Testando</span>
-          </a>
-          <a class="post-tag-link" href="#">
-            <i class="fa-solid fa-link"></i>
-            <span>Atenção</span>
-          </a>
-          <a class="post-tag-link" href="#">
-            <i class="fa-solid fa-link"></i>
-            <span>Obrigado</span>
-          </a>
-          <a class="post-tag-link" href="#">
-            <i class="fa-solid fa-link"></i>
-            <span>Educação</span>
-          </a>
-          <a class="post-tag-link" href="#">
-            <i class="fa-solid fa-link"></i>
-            <span>Python</span>
-          </a>
+          {% for tag in post.tags.all %}
+            <a class="post-tag-link" href="{% url 'blog:tag' tag.slug %}">
+              <i class="fa-solid fa-link"></i>
+              <span>{{ tag.name }}</span>
+            </a>
+          {% endfor %}
         </div>
-        
+      {% endif %}
       </div>
     
     </div>
