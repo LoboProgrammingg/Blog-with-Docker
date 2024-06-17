@@ -1,41 +1,10 @@
 {% extends 'blog/base.html' %}
-
 {% block content %}
   <main class="main-content section-wrapper">
     <div class="section-content-narrow">
       <div class="section-gap">
-        <h1 class="center">Nikola Tesla</h1>
-        <p>Nikola Tesla foi um inventor, engenheiro elétrico, engenheiro mecânico e futurista sérvio-americano, mais conhecido por suas contribuições ao design do moderno sistema de fornecimento de eletricidade em corrente alternada (CA).</p>
-        
-        <section>
-          <h2>Biografia</h2>
-          <img loading="lazy" src="https://auniao.pb.gov.br/noticias/caderno_cultura/morte-de-nikola-tesla-genio-da-eletricidade-completa-74-anos/n-tesla.jpg/@@images/0f277d8d-9159-4a97-b592-859f635454e9.jpeg" alt="change-me"
-          <p>Nascido em 10 de julho de 1856, na vila de Smiljan, então parte do Império Austríaco (hoje Croácia), Tesla mostrou interesse em ciência e tecnologia desde cedo. Ele estudou engenharia elétrica na Universidade Técnica de Graz e trabalhou em diversas áreas antes de se mudar para os Estados Unidos em 1884.</p>
-        </section>
-        
-        <section>
-          <h2>Invenções e Contribuições</h2>
-          <img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Nikola_Tesla%2C_with_his_equipment_EDIT.jpg/794px-Nikola_Tesla%2C_with_his_equipment_EDIT.jpg" alt='change-me'
-          <ul>
-            <li><strong>Sistema de corrente alternada (CA):</strong> Tesla desenvolveu o sistema de fornecimento de eletricidade em corrente alternada, que é usado até hoje para distribuir energia elétrica a longas distâncias.</li>
-            <li><strong>Tesla Coil:</strong> Uma das invenções mais conhecidas de Tesla, a bobina de Tesla, foi fundamental para o desenvolvimento da tecnologia de rádio e outras formas de comunicação sem fio.</li>
-            <li><strong>Transmissão sem fio:</strong> Tesla sonhava com a transmissão de eletricidade sem fio e fez diversas experiências para alcançar esse objetivo, incluindo a famosa Torre Wardenclyffe.</li>
-            <li><strong>Rádio:</strong> Embora muitas vezes creditado a Marconi, Tesla também fez importantes contribuições para o desenvolvimento do rádio.</li>
-          </ul>
-        </section>
-        
-        <section>
-          <h2>Legado</h2>
-          <p>Nikola Tesla faleceu em 7 de janeiro de 1943, mas seu legado continua a influenciar a ciência e a tecnologia. Ele é lembrado não apenas por suas invenções, mas também por sua visão de um futuro onde a energia é gratuita e acessível para todos. Tesla é considerado um dos maiores inventores da história e um verdadeiro visionário.</p>
-        </section>
-        
-        <section>
-          <h2>Por que Nikola Tesla foi tão Foda</h2>
-          <p>Nikola Tesla não é apenas um inventor brilhante, mas também um exemplo de dedicação e inovação. Sua capacidade de pensar além do seu tempo e de enfrentar desafios com coragem e criatividade faz dele uma figura inspiradora. Tesla imaginou um mundo melhor e trabalhou incansavelmente para torná-lo realidade, e é por isso que ele é considerado tão incrível.</p>
-        </section>
-        <footer>
-          <img loading="lazy" src="https://i.kym-cdn.com/photos/images/newsfeed/002/674/141/5ca.jpg" alt="change-me"
-        </footer>
+        <h1 class="center">{{ page.title }}</h1>
+        {{ page.content | safe }}
       </div>
     </div>
   </main>
